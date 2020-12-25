@@ -1,0 +1,17 @@
+/* pages/subpage/AboutUs/AboutUs.wxss */
+page {
+  background: #fff;
+}
+
+.notice-detail-panel {
+  padding: 30rpx;
+}
+
+.textBody{
+  line-height: 40rpx;
+}
+
+/* .textBody>img{
+  width: 300rpx !important;
+  height: 300rpx !important;
+} */

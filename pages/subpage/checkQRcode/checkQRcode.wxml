@@ -1,0 +1,22 @@
+<cu-custom bgColor="bg-white" isBack="{{true}}">
+	<view slot="content">核销员</view>
+</cu-custom>
+
+<view class="check bou-20">
+	<view class="top d-fx jc-between pt-20">
+		<view class="left d-fx jc-center ai-center py-30 px-30">
+			<image src="/image/index.png"></image>
+			<view class="ml-30">核销员</view>
+		</view>
+		<view class="right d-fx jc-center ai-center" bindtap="goQRcodeLog">
+			<view style="font-size: 30rpx;">核销记录 ></view>
+		</view>
+	</view>
+	<view class="body d-fx jc-center ai-center py-30">
+    <image src="/image/icons/checkQRcode.png" bindtap="checkCode"></image>
+  </view>
+	<view class="bottom d-fx jc-between ai-center">
+    <input class="pl-40" type="text" bindinput="postHexiao" placeholder="手动输入核销码"></input>
+    <view bindtap="postQd" class="post">确定</view>
+  </view>
+</view>

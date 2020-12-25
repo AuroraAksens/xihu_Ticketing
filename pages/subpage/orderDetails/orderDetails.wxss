@@ -1,0 +1,33 @@
+/* pages/subpage/orderDetails/orderDetails.wxss */
+.listBox{
+  width: 95%;
+  margin: 20rpx auto;
+  background-color: white;
+  box-shadow:0px 3px 20px rgba(128,124,124,0.16);
+}
+.listBox>.title{
+  width: 100%;
+  color: #030303;
+  font-size: 30rpx;
+  font-weight:bold;
+}
+
+.listBox>.title>.active{
+  width: 10rpx;
+  height: 30rpx;
+  background-color: #01CDCD;
+}
+
+.listBox>.body{
+  width: 100%;
+  font-size: 24rpx;
+  color: #646464;
+  line-height: 45rpx;
+  text-align: start;
+  padding: 10rpx 10rpx 10rpx 10rpx;
+}
+.listBox>.body>view{
+  margin-top: 15rpx;
+  margin-bottom: 10rpx;
+  text-indent:1em;
+}

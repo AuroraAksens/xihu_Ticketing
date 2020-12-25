@@ -1,0 +1,224 @@
+<cu-custom bgColor="bg-white" isCustom="{{true}}">
+	<view slot="content">订单详情</view>
+</cu-custom>
+
+<image class="topImage" src="/image/orderDetails.png"></image>
+
+<!-- 顶部计时器 -->
+<image id="topbjImg" wx:if="{{type == 0}}" src="/image/szbj.jpg"></image>
+<view class="timeOut bou-15" bindtap="thisTime" wx:if="{{type == 0}}">
+
+	<!-- 计时中 -->
+	<block wx:if="{{status == 0}}">
+		<image src="/image/timeBG1.png"></image>
+		<view class="time-box1">
+			{{h}}:{{m}}:{{s}}
+		</view>
+	</block>
+	<!-- 计时中结束 -->
+
+	<!-- 已超时 -->
+	<block wx:if="{{status == 1}}">
+		<image class="timeBG2" src="/image/timeBG2.png"></image>
+		<view class="time-box2">
+			{{h}}:{{m}}:{{s}}
+		</view>
+	</block>
+	<!-- 已超时结束 -->
+	
+</view>
+<!-- 顶部计时器结束 -->
+
+<!-- 底部订单详情 -->
+<!-- 进场 -->
+<block wx:if="{{type == 0}}">
+	<view class="listBox bou-15 py-20 px-20">
+		<view class="title d-fx jc-start ai-center">
+			<view class="active mr-10"></view>
+			<view>其他信息</view>
+		</view>
+		<view class="body my-20">
+			<view class="body-box mt-20 py-20 d-fx jc-between ai-center">
+				<view style="font-size:30rpx;">救援电话</view>
+				<view style="font-size:34rpx;color:#ffffff;padding: 8px 20px;font-weight:bold;background:#fa5151;border-radius: 20px" bindtap="markPhone">一键拨打</view>
+			</view>
+			<view class="body-box mt-20 py-20 d-fx jc-between ai-center">
+				<view style="font-size:30rpx;">入场时间</view>
+				<view style="font-size:34rpx;font-weight:bold;">{{listData.admission_time}}</view>
+			</view>
+			<view class="body-box mt-20 py-20 d-fx jc-between ai-center">
+				<view style="font-size:30rpx;">救援编号</view>
+				<view style="font-size:34rpx;font-weight:bold;">{{order_number}}</view>
+			</view>
+		</view>
+		<!-- <view class="goOut">我要出场</view> -->
+	</view>
+
+	<view class="listBox bou-15 py-20 px-20">
+		<view class="title d-fx jc-start ai-center">
+			<view class="active mr-10"></view>
+			<view>订单信息</view>
+		</view>
+		<view class="body my-20">
+			<view class="body-box mt-20 py-20 d-fx jc-between ai-center">
+				<view style="font-size:30rpx;">订单编号</view>
+				<view style="font-size:34rpx;font-weight:bold;">{{listData.order_number}}</view>
+			</view>
+			<!-- <view class="body-box mt-20 py-20 d-fx jc-between ai-center">
+				<view style="font-size:30rpx;">订单标题</view>
+				<view style="font-size:34rpx;font-weight:bold;">{{listData.product_snapshot.name}}</view>
+			</view> -->
+			<view class="body-box mt-20 py-20 d-fx jc-between ai-center">
+				<view style="font-size:30rpx;">订单用户</view>
+				<view class="user d-fx jc-between ai-center" style="font-size:34rpx;font-weight:bold;">
+					<view class="mr-30">{{listData.username}}</view>
+					<image src="{{listData.head_image}}"></image>
+				</view>
+			</view>
+			<view class="body-box mt-20 py-20 d-fx jc-between ai-center">
+				<view style="font-size:30rpx;">游船类型</view>
+				<view style="font-size:34rpx;font-weight:bold;">{{listData.product_snapshot.vessel_type}}</view>
+			</view>
+			<view class="body-box mt-20 py-20 d-fx jc-between ai-center">
+				<view style="font-size:30rpx;">限载</view>
+				<view style="font-size:34rpx;font-weight:bold;">{{listData.product_snapshot.number}}人</view>
+			</view>
+		</view>
+	</view>
+
+	<view class="listBox bou-15 py-20 px-20">
+		<view class="title d-fx jc-start ai-center">
+			<view class="active mr-10"></view>
+			<view>消费信息</view>
+		</view>
+		<view class="body my-20">
+			<!-- <view class="body-box mt-20 py-20 d-fx jc-between ai-center">
+				<view style="font-size:30rpx;">最低消费(从押金费用里扣)</view>
+				<view style="font-size:34rpx;font-weight:bold;">￥{{listData.price}}/{{listData.min_time}}分钟</view>
+			</view> -->
+			<view class="body-box mt-20 py-20 d-fx jc-between ai-center">
+				<view style="font-size:30rpx;">最低消费后(从押金费用里扣)</view>
+				<view style="font-size:34rpx;font-weight:bold;">￥{{listData.price}}/{{listData.min_time}}分钟</view>
+			</view>
+			<view class="body-box mt-20 py-20 d-fx jc-between ai-center">
+				<view style="font-size:30rpx;">押金</view>
+				<view style="font-size:34rpx;font-weight:bold;">￥{{listData.order_price}}</view>
+			</view>
+			<view class="body-box mt-20 py-20 d-fx jc-between ai-center">
+				<view style="font-size:30rpx;">最低消费后计费标准</view>
+				<view style="font-size:34rpx;font-weight:bold;">￥{{listData.after_price}}/{{listData.after_min_time}}分钟</view>
+			</view>
+		</view>
+	</view>
+</block>
+<!-- 进场结束 -->
+
+
+
+<!-- 出场 -->
+<block wx:if="{{type == 1}}">
+	<view class="listBox bou-15 py-20 px-20">
+		<view class="title d-fx jc-start ai-center">
+			<view class="active mr-10"></view>
+			<view>订单信息</view>
+		</view>
+		<view class="body-box mt-20 py-20 d-fx jc-between ai-center">
+			<view style="font-size:30rpx;">订单编号</view>
+			<view style="font-size:34rpx;font-weight:bold;">{{listData.order_number}}</view>
+		</view>
+		<view class="body-box mt-20 py-20 d-fx jc-between ai-center">
+			<view style="font-size:30rpx;">订单标题</view>
+			<view style="font-size:34rpx;font-weight:bold;">{{listData.product_snapshot.name}}</view>
+		</view>
+		<view class="body-box mt-20 py-20 d-fx jc-between ai-center">
+			<view style="font-size:30rpx;">订单用户</view>
+			<view class="user d-fx jc-between ai-center" style="font-size:34rpx;font-weight:bold;">
+				<view class="mr-30">{{listData.username}}</view>
+				<image src="{{listData.head_image}}"></image>
+			</view>
+		</view>
+		<view class="body-box mt-20 py-20 d-fx jc-between ai-center">
+			<view style="font-size:30rpx;">游船类型</view>
+			<view style="font-size:34rpx;font-weight:bold;">{{listData.product_snapshot.vessel_type}}</view>
+		</view>
+		<view class="body-box mt-20 py-20 d-fx jc-between ai-center">
+			<view style="font-size:30rpx;">限载</view>
+			<view style="font-size:34rpx;font-weight:bold;">{{listData.product_snapshot.number}}人</view>
+		</view>
+	</view>
+	<view class="listBox bou-15 py-20 px-20">
+		<view class="title d-fx jc-start ai-center">
+			<view class="active mr-10"></view>
+			<view>消费信息</view>
+		</view>
+
+		<block wx:if="{{listData.specs_id == 2}}">
+			<view class="body-box mt-20 py-20 d-fx jc-between ai-center">
+				<view style="font-size:30rpx;">最低消费(从押金费用里扣)</view>
+				<view style="font-size:34rpx;font-weight:bold;">￥{{listData.price}}/{{listData.min_time}}分钟</view>
+			</view>
+			<view class="body-box mt-20 py-20 d-fx jc-between ai-center">
+				<view style="font-size:30rpx;">最低消费后(从押金费用里扣)</view>
+				<view style="font-size:34rpx;font-weight:bold;">￥{{listData.after_price}}/{{listData.after_min_time}}分钟</view>
+			</view>
+			<view class="body-box mt-20 py-20 d-fx jc-between ai-center">
+				<view style="font-size:30rpx;">已付押金</view>
+				<view style="font-size:34rpx;font-weight:bold;">￥{{listData.order_price}}</view>
+			</view>
+			<view class="body-box mt-20 py-20 d-fx jc-between ai-center">
+				<view style="font-size:30rpx;">游船时长</view>
+				<view style="font-size:34rpx;font-weight:bold;">{{listData.diff_time}}分钟</view>
+			</view>
+			<view class="body-box mt-20 py-20 d-fx jc-between ai-center" data-index="0" bindtap="goRule">
+				<view style="font-size:30rpx;">可退押金 <image style="width: 25rpx;height: 25rpx;" src="/image/icons/search.png"></image>
+				</view>
+				<view style="font-size:34rpx;font-weight:bold;">￥{{listData.tk_price}}</view>
+			</view>
+		</block>
+
+		<block wx:if="{{listData.specs_id == 1}}">
+			<view class="body-box mt-20 py-20 d-fx jc-between ai-center">
+				<view style="font-size:30rpx;">总价</view>
+				<view style="font-size:34rpx;font-weight:bold;">￥{{listData.order_price}}</view>
+			</view>
+			<view class="body-box mt-20 py-20 d-fx jc-between ai-center">
+				<view style="font-size:30rpx;">人数</view>
+				<view style="font-size:34rpx;font-weight:bold;">{{listData.num_people}}人</view>
+			</view>
+		</block>
+
+	</view>
+	<view class="listBox bou-15 py-20 px-20">
+		<view class="title d-fx jc-start ai-center">
+			<view class="active mr-10"></view>
+			<view>其他信息</view>
+		</view>
+
+		<block wx:if="{{listData.specs_id == 2}}">
+			<view class="body-box mt-20 py-20 d-fx jc-between ai-center">
+				<view style="font-size:30rpx;">入场时间</view>
+				<view style="font-size:34rpx;font-weight:bold;">{{listData.admission_time}}</view>
+			</view>
+			<view class="body-box mt-20 py-20 d-fx jc-between ai-center">
+				<view style="font-size:30rpx;">出场时间</view>
+				<view style="font-size:34rpx;font-weight:bold;">{{listData.appearance_time}}</view>
+			</view>
+		</block>
+
+		<view class="body-box mt-20 py-20 d-fx jc-between ai-center">
+			<view style="font-size:30rpx;">救援编号</view>
+			<view style="font-size:34rpx;font-weight:bold;">{{order_number}}</view>
+		</view>
+		<view class="body-box mt-20 py-20 d-fx jc-between ai-center" data-index="1" bindtap="goRule">
+			<view style="font-size:30rpx;">备注 <image style="width: 25rpx;height: 25rpx;" src="/image/icons/search.png"></image>
+			</view>
+			<view style="font-size:34rpx;font-weight:bold;">电动船最低消费半小时...</view>
+		</view>
+		<!-- <view class="goOut" wx:if="{{type == 1}}">立即退押金</view> -->
+	</view>
+</block>
+<!-- 出场结束 -->
+
+<!-- 底部订单详情结束 -->
+
+<view class="pb-50"></view>

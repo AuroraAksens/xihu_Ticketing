@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "index": "/pages/index/index",
+    "mine": "/pages/mine/mine",
+    "order": "/pages/order/order"
+  },
+  "enablePullDownRefresh": true
+}

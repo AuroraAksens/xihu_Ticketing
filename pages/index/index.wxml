@@ -1,0 +1,123 @@
+<cu-custom bgColor="bg-white">
+	<view slot="content">首页</view>
+</cu-custom>
+
+<image class="bj" mode="scaleToFill" src="/image/indexbj.png"></image>
+
+<view class="m-box">
+
+	<!-- 搜索框 -->
+	<view class="search d-fx ai-center jc-center">
+		<view class="ss">
+			<image src="/image/icons/ss.png"></image>
+		</view>
+		<input class="search-text pl-20" bindblur="searchInput" type="text" placeholder="搜索船源"></input>
+	</view>
+	<!-- 搜索框结束 -->
+
+
+
+	<!-- 顶部图片 -->
+	<view class="d-fx jc-center">
+		<image class="indeximage" src="/image/index.png"></image>
+	</view>
+	<!-- 顶部图片结束 -->
+
+
+
+	<!-- 公告栏 -->
+	<view class="board d-fx jc-center">
+		<view class="board-icon">
+			<image src="/image/icons/hh.png"></image>
+		</view>
+		<view class="board-body pl-20">
+			西湖公告
+		</view>
+		<view class="board-foot" bindtap="goNotice">
+			更多
+		</view>
+	</view>
+	<!-- 公告栏结束 -->
+
+
+
+	<!-- 导航选项 -->
+	<view class="navbar d-fx jc-around ai-center">
+		<view class="navbar-box" data-id="2" bindtap="goShipList">
+			<image src="/image/icons/ElectricBoat.png"></image>
+			<view>电动船</view>
+		</view>
+		<view class="navbar-box" data-id="1" bindtap="goShipList">
+			<image src="/image/icons/PedalBoat.png"></image>
+			<view>脚踏船</view>
+		</view>
+		<view class="navbar-box" data-id="4" bindtap="goShipList">
+			<image src="/image/icons/SightseeingShip.png"></image>
+			<view>观光船</view>
+		</view>
+		<view class="navbar-box" bindtap="goAboutUs">
+			<image src="/image/icons/AboutUs.png"></image>
+			<view>关于我们</view>
+		</view>
+	</view>
+	<!-- 导航选项结束 -->
+
+
+
+
+	<!-- 广告图 -->
+	<view class="d-fx jc-center">
+		<image class="indeximage2" src="/image/ggt.png" mode="aspectFit"></image>
+	</view>
+	<!-- 广告图结束 -->
+
+
+
+
+	<!-- 船只列表 -->
+	<block wx:for="{{listData}}" wx:key="index">
+		<view class="shipTitle d-fx jc-start ai-center py-30">
+			<view class="shipXian mr-10"></view>{{item.name}}
+		</view>
+		<!-- <scroll-view scroll-x class="navs" scroll-with-animation> -->
+			<view class="m-list">
+				<block wx:key="index" wx:for="{{item.product}}">
+					<view class="box" data-id="{{item.id}}" bindtap="goDetails">
+						<view class="top1">
+							<image style="width:300rpx;height:200rpx" mode="aspectFill" src="{{item.image}}"></image>
+							<view class="top1-icon">限坐{{item.number}}人</view>
+						</view>
+						<view class="top2">{{item.name}}</view>
+
+						<view class="top3">
+							<view class="top3-box" wx:if="{{item.specs_id == 2}}">
+								租金：{{item.price}}元/{{item.min_time}}分钟
+							</view>
+							<view class="top3-box" wx:if="{{item.specs_id == 1}}">
+								租金：{{item.price}}元/1人
+							</view>
+							<view class="top3-box">
+								押金：{{item.price}}元
+							</view>
+						</view>
+
+					</view>
+				</block>
+			</view>
+			<!-- <view class="cheng"></view> -->
+		<!-- </scroll-view> -->
+		<!-- <view class="shipButtom" data-id="{{item.id}}" bindtap="goShipList">查看更多游船</view> -->
+	</block>
+
+	<view class="cheng"></view>
+	<!-- 船只列表结束 -->
+
+
+
+</view>
+
+<view class="pb"></view>
+
+<!-- <view class="buoy" wx:if="{{buoy == true}}" bindtap="getOrder2">
+	<image src="/image/icons/buoy.png"></image>
+</view> -->

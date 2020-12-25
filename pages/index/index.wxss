@@ -1,0 +1,308 @@
+.bj{
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  z-index: 0;
+}
+.m-box {
+  height: calc(100vh - 8vh);
+  overflow: scroll;
+  position: relative;
+}
+
+
+/* 顶部图片 */
+.indeximage {
+  width: 90%;
+  height: 410rpx;
+}
+
+/* 搜索框 */
+.search {
+  width: 90%;
+  height: 70rpx;
+  z-index: 5;
+  border: 1px solid;
+  margin: 20rpx auto;
+  border-radius: 50rpx;
+}
+
+.search>.ss{
+  width: 45rpx;
+  height: 40rpx;
+}
+
+.search>.ss>image{
+  width: 100%;
+  height: 100%;
+}
+
+.search>.search-text {
+  width: 580rpx;
+  height: 65rpx;
+  font-size: 24rpx;
+  background-color: #FFFFFF;
+}
+/* 公告栏 */
+.board{
+  width: 90%;
+  margin: 20rpx auto;
+  background-color: white;
+}
+.board-icon{
+  width: 60rpx;
+  height: 50rpx;
+  border: 1rpx solid gray;
+}
+.board-icon>image{
+  width: 100%;
+  height: 100%;
+}
+.board-body{
+  height: 50rpx;
+  width: 535rpx;
+  border: 1rpx solid gray;
+  font-size: 28rpx;
+  line-height: 50rpx;
+  font-weight: bold;
+}
+
+.board-foot{
+  width: 100rpx;
+  height: 50rpx;
+  text-align: center;
+  font-size: 28rpx;
+  line-height: 50rpx;
+  font-weight: bold;
+  border: 1rpx solid gray;
+
+}
+
+/* 导航选项 */
+.navbar {
+  width: 100%;
+  height: 160rpx;
+}
+
+.navbar>.navbar-box {
+  width: 90rpx;
+  font-size: 23rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.navbar>.navbar-box>view{
+  margin-top: 10rpx;
+}
+
+.navbar>.navbar-box>image {
+  width: 85rpx;
+  height: 85rpx;
+}
+
+.indeximage2{
+  width: 88%;
+  height: 230rpx;
+}
+
+/* 天气组件 */
+.weather {
+  width: 100%;
+  height: 247rpx;
+  position: relative;
+}
+
+.weather>image {
+  width: 100%;
+  height: 247rpx;
+}
+
+.weather>.title {
+  width: 300rpx;
+  height: 38rpx;
+  position: absolute;
+  top: 0;
+  font-size: 24rpx;
+  padding-bottom: 25rpx;
+}
+
+.horn {
+  width: 20rpx;
+  height: 20rpx;
+}
+
+.weather>.weather-box {
+  width: 100%;
+  height: 200rpx;
+  position: absolute;
+  top: 40rpx;
+  color: white;
+}
+
+.weather>.weather-box>.left {
+  width: 35%;
+  height: 200rpx;
+  padding-left: 50rpx;
+}
+
+.weather>.weather-box>.left>.title {
+  font-size: 23rpx;
+}
+
+.weather>.weather-box>.left>.body {
+  font-size: 50rpx;
+}
+
+.weather>.weather-box>.left>.foot {
+  font-size: 22rpx;
+}
+
+.weather>.weather-box>.left>.foot>image {
+  width: 55rpx;
+  height: 55rpx;
+}
+
+.weather>.weather-box>.right {
+  width: 65%;
+  height: 200rpx;
+}
+
+.weather>.weather-box>.right>.title {
+  width: 420rpx;
+  margin-top: 90rpx;
+  /* margin-left: -40rpx; */
+  font-size: 22rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.weather>.weather-box>.right>.body>.body-box {
+  font-size: 22rpx;
+  text-align: center;
+}
+
+
+/* 船只列表 */
+.shipTitle {
+  font-size: 32rpx;
+  color: #030303;
+  font-weight: 800;
+  line-height: 45rpx;
+  margin-left: 7%;
+}
+
+.shipXian{
+  width: 6rpx;
+  height: 40rpx;
+  background-color: black;
+}
+
+.navs {
+  padding-bottom: 5%;
+  height: 460rpx;
+}
+
+.m-list {
+  margin-left: 5%;
+  display: flex;
+  justify-content: start;
+  flex-wrap: wrap;
+}
+
+.m-list>.box {
+  padding: 2%;
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.16);
+  background-color: #fff;
+  margin-right: 15rpx;
+  position: relative;
+  border: 1px solid rgb(160, 160, 160);
+  margin-bottom: 25rpx ;
+}
+
+
+.top1-icon {
+  width: 100rpx;
+  height: 42rpx;
+  font-size: 22rpx;
+  color: white;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #992a31;
+  text-align: center;
+  line-height: 42rpx;
+}
+
+.m-list>.box>.top1>view {
+  position: absolute;
+  top: 0rpx;
+  right: 0;
+}
+
+.m-list>.box>.top2 {
+  color: #992a31;
+  font-size: 26rpx;
+}
+
+.m-list>.box>.top3>.top3-box {
+  color: black;
+  font-size: 22rpx;
+  border-radius: 10rpx;
+  position: relative;
+  padding: 6rpx 6rpx 6rpx 6rpx;
+  font-weight: bold;
+}
+
+.m-list>.box>.top3>.top3-box>image {
+  width: 40rpx;
+  height: 40rpx;
+  position: absolute;
+  top: -12rpx;
+  left: 6rpx;
+}
+
+.m-list>.box>.top3>.top3-box>view {
+  height: 30rpx;
+}
+
+
+
+.shipButtom {
+  width: 90%;
+  height: 100rpx;
+  border-radius: 20rpx;
+  border: 4rpx solid #992a31;
+  color: #992a31;
+  font-size: 28rpx;
+  text-align: center;
+  line-height: 100rpx;
+  margin: auto;
+  background-color: white;
+}
+
+/* cheng */
+.cheng {
+  height: 200rpx;
+  width: 100%;
+}
+
+.buoy {
+  width: 80rpx;
+  height: 80rpx;
+  position: absolute;
+  top: 330rpx;
+  right: 0;
+  background-color: white;
+  border-radius: 50rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.buoy>image {
+  width: 50rpx;
+  height: 50rpx;
+}

@@ -1,0 +1,8 @@
+<cu-custom bgColor="bg-white" isBack="{{true}}">
+	<view slot="content">关于我们</view>
+</cu-custom>
+
+<view class="rich-text-panel">
+<rich-text class="textBody" nodes="{{listData}}">
+</rich-text>
+</view>

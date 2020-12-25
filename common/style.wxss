@@ -1,0 +1,337 @@
+/* 全局工具类样式 */
+
+/* 边距 */
+/* padding */
+.px-10 {
+  padding-left: 10rpx;
+  padding-right: 10rpx;
+}
+
+.px-20 {
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+}
+
+.px-30 {
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+}
+
+.px-40 {
+  padding-left: 40rpx;
+  padding-right: 40rpx;
+}
+
+.px-50 {
+  padding-left: 50rpx;
+  padding-right: 50rpx;
+}
+
+.py-10 {
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+}
+
+.py-20 {
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+}
+
+.py-30 {
+  padding-top: 30rpx;
+  padding-bottom: 30rpx;
+}
+
+.py-40 {
+  padding-top: 40rpx;
+  padding-bottom: 40rpx;
+}
+
+.py-50 {
+  padding-top: 50rpx;
+  padding-bottom: 50rpx;
+}
+
+.pl-10 {
+  padding-left: 10rpx;
+}
+
+.pl-20 {
+  padding-left: 20rpx;
+}
+
+.pl-30 {
+  padding-left: 30rpx;
+}
+
+.pl-40 {
+  padding-left: 40rpx;
+}
+
+.pl-40 {
+  padding-left: 40rpx;
+}
+
+.pr-10 {
+  padding-right: 10rpx;
+}
+
+.pr-20 {
+  padding-right: 20rpx;
+}
+
+.pr-30 {
+  padding-right: 30rpx;
+}
+
+.pr-40 {
+  padding-right: 40rpx;
+}
+
+.pr-50 {
+  padding-right: 50rpx;
+}
+
+.pt-10 {
+  padding-top: 10rpx;
+}
+
+.pt-20 {
+  padding-top: 20rpx;
+}
+
+.pt-30 {
+  padding-top: 30rpx;
+}
+
+.pt-40 {
+  padding-top: 40rpx;
+}
+
+.pt-50 {
+  padding-top: 50rpx;
+}
+
+.pb-10 {
+  padding-bottom: 10rpx;
+}
+
+.pb-20 {
+  padding-bottom: 20rpx;
+}
+
+.pb-30 {
+  padding-bottom: 30rpx;
+}
+
+.pb-40 {
+  padding-bottom: 40rpx;
+}
+
+.pb-50 {
+  padding-bottom: 50rpx;
+}
+
+/* margin */
+.mx-10 {
+  margin-left: 10rpx;
+  margin-right: 10rpx;
+}
+
+.mx-20 {
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+}
+
+.mx-30 {
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+}
+
+.mx-40 {
+  margin-left: 40rpx;
+  margin-right: 40rpx;
+}
+
+.mx-50 {
+  margin-left: 50rpx;
+  margin-right: 50rpx;
+}
+
+.my-10 {
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
+}
+
+.my-20 {
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.my-30 {
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
+}
+
+.my-40 {
+  margin-top: 40rpx;
+  margin-bottom: 40rpx;
+}
+
+.my-50 {
+  margin-top: 50rpx;
+  margin-bottom: 50rpx;
+}
+
+.ml-10 {
+  margin-left: 10rpx;
+}
+
+.ml-20 {
+  margin-left: 20rpx;
+}
+
+.ml-30 {
+  margin-left: 30rpx;
+}
+
+.ml-40 {
+  margin-left: 40rpx;
+}
+
+.ml-50 {
+  margin-left: 50rpx;
+}
+
+.mr-10 {
+  margin-right: 10rpx;
+}
+
+.mr-20 {
+  margin-right: 20rpx;
+}
+
+.mr-30 {
+  margin-right: 30rpx;
+}
+
+.mr-40 {
+  margin-right: 40rpx;
+}
+
+.mr-50 {
+  margin-right: 50rpx;
+}
+
+.mt-10 {
+  margin-top: 10rpx;
+}
+
+.mt-20 {
+  margin-top: 20rpx;
+}
+
+.mt-30 {
+  margin-top: 30rpx;
+}
+
+.mt-40 {
+  margin-top: 40rpx;
+}
+
+.mt-50 {
+  margin-top: 50rpx;
+}
+
+.mb-10 {
+  margin-bottom: 10rpx;
+}
+
+.mb-20 {
+  margin-bottom: 20rpx;
+}
+
+.mb-30 {
+  margin-bottom: 30rpx;
+}
+
+.mb-40 {
+  margin-bottom: 40rpx;
+}
+
+.mb-50 {
+  margin-bottom: 50rpx;
+}
+
+/* flex */
+.d-fx {
+  display: flex;
+}
+
+.flex-cl {
+  flex-direction: column;
+}
+
+.flex-w {
+  flex-wrap: wrap;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+/* justify-content */
+.jc-start {
+  justify-content: flex-start;
+}
+
+.jc-center {
+  justify-content: center;
+}
+
+.jc-end {
+  justify-content: flex-end;
+}
+
+.jc-between {
+  justify-content: space-between;
+}
+
+.jc-around {
+  justify-content: space-around;
+}
+
+/* align-items */
+.ai-start {
+  align-items: flex-start;
+}
+
+.ai-center {
+  align-items: center;
+}
+
+.ai-end {
+  align-items: flex-end;
+}
+
+
+/* border */
+.bor {
+  border: 1px solid;
+}
+
+.bou-15 {
+  border-radius: 15rpx;
+}
+
+.bou-20 {
+  border-radius: 20rpx;
+}
+
+.bou-25 {
+  border-radius: 25rpx;
+}
+
+.bou-30 {
+  border-radius: 30rpx;
+}

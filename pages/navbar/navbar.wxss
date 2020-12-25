@@ -1,0 +1,68 @@
+/* pages/owner/navbar/navbar.wxss */
+/*  */
+.cu-modal>.cu-dialog>.img {
+  width: 623rpx;
+  height: 878rpx;
+}
+
+.cu-modal>.cu-dialog>.modalbox {
+  position: absolute;
+  top: 330rpx;
+  width: 623rpx;
+  height: 470rpx;
+  left: 30rpx;
+}
+
+.cu-modal>.cu-dialog>.modalbox>.top>button>image {
+  width: 520rpx;
+  height: 126rpx;
+}
+
+.cu-modal>.cu-dialog>.modalbox>.top>button {
+  width: 520rpx;
+  height: 126rpx;
+}
+
+.cu-modal>.cu-dialog>.modalbox>.mid>button>image {
+  width: 520rpx;
+  height: 126rpx;
+}
+
+.cu-modal>.cu-dialog>.modalbox>.mid>button {
+  width: 520rpx;
+  height: 126rpx;
+  margin-top: 30rpx;
+}
+
+.cu-modal>.cu-dialog>.modalbox>.bottom>button>image {
+  width: 520rpx;
+  height: 90rpx;
+}
+
+.cu-modal>.cu-dialog>.modalbox>.bottom>button {
+  width: 554rpx;
+  height: 138rpx;
+  margin-top: 25rpx;
+}
+
+.text-green{
+  color: black;
+}
+
+
+/* 去除button */
+button::after {
+  border: none;
+}
+
+button {
+  background-color: transparent;
+  padding-left: 0;
+  padding-right: 0;
+  line-height: inherit;
+}
+
+.button-hover {
+  /*点击后样式*/
+  background-color: transparent;
+}

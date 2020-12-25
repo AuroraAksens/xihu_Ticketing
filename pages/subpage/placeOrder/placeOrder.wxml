@@ -1,0 +1,28 @@
+<cu-custom bgColor="bg-white" isBack="{{true}}">
+	<view slot="content">支付成功</view>
+</cu-custom>
+
+<view class="place d-fx jc-center ai-center flex-cl">
+	<view class="top d-fx jc-center ai-center flex-cl mb-20 mt-50">
+		<image src="/image/icons/place.png"></image>
+		<view class="mt-10">支付成功</view>
+	</view>
+	<view class="body">
+    <view class="d-fx jc-between py-20">
+      <view>订单编号</view>
+      <view>hzxh123</view>
+    </view>
+    <view class="d-fx jc-between py-20">
+      <view>支付方式</view>
+      <view>微信</view>
+    </view>
+    <view class="d-fx jc-between py-20 pb-50">
+      <view>支付时间</view>
+      <view>2020-07-13 21:35</view>
+    </view>
+  </view>
+	<view class="bottom my-30 d-fx jc-between">
+    <view class="but bou-15 bor" bindtap="goHome">返回首页</view>
+    <view class="buts bou-15" bindtap="goOrder">查看订单</view>
+  </view>
+</view>

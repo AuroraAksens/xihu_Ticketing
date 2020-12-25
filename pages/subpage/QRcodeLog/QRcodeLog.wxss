@@ -1,0 +1,23 @@
+/* pages/subpage/QRcodeLog/QRcodeLog.wxss */
+.checkLog{
+  width: 90%;
+  margin: auto;
+}
+.checkLog>.log-box{
+  width: 100%;
+  background-color: white;
+  box-shadow:0px 3px 12px rgba(123,174,178,0.16);
+}
+.checkLog>.log-box>.left{
+  width: 80%;
+  font-size: 28rpx;
+  font-weight: bold;
+}
+.checkLog>.log-box>.left>image{
+  width: 220rpx;
+  height: 125rpx;
+}
+.checkLog>.log-box>.right{
+  font-size: 22rpx;
+  color: #01CDCD;
+}

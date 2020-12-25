@@ -1,0 +1,16 @@
+/* pages/subpage/AboutUs/AboutUs.wxss */
+page {
+  background-color: #fff;
+}
+.textBody{
+  line-height: 40rpx;
+}
+
+.rich-text-panel {
+  padding: 30rpx;
+}
+
+.textBody>img{
+  width: 300rpx !important;
+  height: 300rpx !important;
+}

@@ -1,0 +1,48 @@
+/* pages/subpage/placeOrder/placeOrder.wxss */
+.place{
+  width: 600rpx;
+  height: 600rpx;
+  box-shadow:0px 3px 6px rgba(0,0,0,0.16);
+  border-radius: 10rpx;
+  background-color: white;
+  margin: 150rpx auto;
+}
+
+.place>.top{
+  font-size: 34rpx;
+  font-weight:bold;
+  color: #030303;
+}
+
+.place>.top>image{
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.place>.body{
+  width: 80%;
+  color: #8B8B8B;
+  font-size: 24rpx;
+  border-bottom: 1rpx solid #dadada;
+}
+.place>.bottom{
+  width: 85%;
+}
+
+.place>.bottom>.but{
+  width: 240rpx;
+  height: 70rpx;
+  background-color: white;
+  color: #8B8B8B;
+  text-align: center;
+  line-height: 70rpx;
+}
+
+.place>.bottom>.buts{
+  width: 240rpx;
+  height: 70rpx;
+  background-color: #01CDCD;
+  color: white;
+  text-align: center;
+  line-height: 70rpx;
+}

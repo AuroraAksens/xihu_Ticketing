@@ -1,0 +1,23 @@
+<cu-custom bgColor="bg-white" isBack="{{true}}">
+	<view slot="content">核销记录明细</view>
+</cu-custom>
+
+<block wx:if="{{listData.length != 0}}" wx:for="{{listData}}" wx:key="index">
+	<view class="log-box px-30 py-10 bou-15">
+		<view class="top d-fx jc-between pb-20">
+			<view class="left d-fx jc-start ai-center">
+				<image src="{{item.image}}"></image>
+				<view class="ml-30">{{item.name}}</view>
+			</view>
+			<view class="right d-fx ai-start flex-cl">
+				<view class="mt-10">订单编号：{{item.order_number}}</view>
+				<view>手机号：{{item.phone}}</view>
+			</view>
+		</view>
+		<view class="foot pt-10">
+			进场: {{item.admission_time}} -- 出场: {{item.appearance_time}}
+		</view>
+	</view>
+</block>
+
+<view wx:if="{{listData.length == 0}}" class="Tips">暂无数据</view>

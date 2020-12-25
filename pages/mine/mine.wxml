@@ -1,0 +1,113 @@
+<cu-custom bgColor="bg-white">
+	<view slot="content">我的</view>
+</cu-custom>
+
+
+<view>
+	<image style="z-index:-1" class="topImg" src="/image/mineImg.jpg"></image>
+</view>
+
+<block wx:if="{{AuthType == 0}}">
+
+	<block wx:if="{{loginType == 0}}">
+		<view class="m-topCards">
+			<view class="left">
+				<view class="left">
+					<view class="cu-avatar lg round margin-left" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big25002.jpg);"></view>
+				</view>
+				<view class="right">登录探索更多~</view>
+			</view>
+			<view class="right">
+				<button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" style="color:#fff">登录</button>
+			</view>
+		</view>
+	</block>
+
+	<block wx:else>
+		<view class="m-topCard">
+			<view class="left">
+				<view class="left">
+					<view class="cu-avatar lg round margin-left" style="background-image:url({{userInfo.image}});"></view>
+				</view>
+				<view class="right">{{userInfo.name}}</view>
+			</view>
+			<view class="body d-fx jc-around ai-center">
+				<view class="text">手机号：{{userInfo.phone}}</view>
+				<view style="font-size: 17rpx;">|</view>
+				<view class="text" wx:if="{{userInfo.cancel_id == 1}}">身份：核销员</view>
+				<view class="text" wx:if="{{userInfo.cancel_id == 0}}">身份：普通用户</view>
+			</view>
+			<view class="body-list d-fx jc-around">
+				<view class="body-box d-fx jc-center ai-center flex-cl" data-index="0" bindtap="goOrderDetails">
+					<image src="/image/icons/AllOrder.png"></image>
+					<view class="mt-20">全部订单</view> 
+				</view>
+				<view class="body-box d-fx jc-center ai-center flex-cl" data-index="1" bindtap="goOrderDetails">
+					<image src="/image/icons/Waiting.png"></image>
+					<view class="mt-20">待入场</view>
+				</view>
+				<view class="body-box d-fx jc-center ai-center flex-cl" data-index="2" bindtap="goOrderDetails">
+					<image src="/image/icons/Admitted.png"></image>
+					<view class="mt-20">已入场</view>
+				</view>
+				<view class="body-box d-fx jc-center ai-center flex-cl" data-index="3" bindtap="goOrderDetails">
+					<image src="/image/icons/OnStage.png"></image>
+					<view class="mt-20">已出场</view>
+				</view>
+				<view class="body-box d-fx jc-center ai-center flex-cl" data-index="4" bindtap="goOrderDetails">
+					<image src="/image/icons/Completed.png"></image>
+					<view class="mt-20">已取消</view>
+				</view>
+			</view>
+		</view>
+	</block>
+
+</block>
+
+<block wx:else>
+	<view class="m-topCards">
+		<view class="left">
+			<view class="left">
+				<view class="cu-avatar lg round margin-left" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big25002.jpg);"></view>
+			</view>
+			<view class="right">需要您的授权~</view>
+		</view>
+		<view class="right">
+			<button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" style="color:#fff">授权信息</button>
+		</view>
+	</view>
+</block>
+
+
+<view class="mine-list" >
+	<view class="list-box d-fx jc-between ai-center py-40" bindtap="{{to == 0 ? 'checkLogin' : 'goNotice'}}">
+		<view class="left d-fx jc-start ai-center pl-30">
+			<image src="/image/icons/Notice.png"></image>
+			<view class="ml-30">平台公告</view>
+		</view>
+		<view class="right pr-30"><text class="cuIcon-right lg text-gray"></text></view>
+	</view>
+	<view class="list-box d-fx jc-between ai-center py-40" bindtap="{{to == 0 ? 'checkLogin' : 'goAboutUs'}}">
+		<view class="left d-fx jc-start ai-center pl-30">
+			<image src="/image/icons/About.png"></image>
+			<view class="ml-30">关于我们</view>
+		</view>
+		<view class="right pr-30"><text class="cuIcon-right lg text-gray"></text></view>
+	</view>
+
+	<view class="list-box d-fx jc-between ai-center py-40" wx:if="{{userInfo.cancel_id == 1}}" bindtap="{{to == 0 ? 'checkLogin' : 'goCheck'}}">
+		<view class="left d-fx jc-start ai-center pl-30">
+			<image src="/image/icons/checkMan.png"></image>
+			<view class="ml-30">核销员</view>
+		</view>
+		<view class="right pr-30"><text class="cuIcon-right lg text-gray"></text></view>
+	</view>
+
+	<button wx:if="{{to == 1}}" open-type="contact" class="list-box d-fx jc-between ai-center py-40" style="font-size: 24rpx;">
+		<view class="left d-fx jc-start ai-center pl-30">
+			<image src="/image/icons/service.png"></image>
+			<view class="ml-30">联系客服</view>
+		</view>
+		<view class="right pr-30"><text class="cuIcon-right lg text-gray"></text></view>
+	</button>
+</view>

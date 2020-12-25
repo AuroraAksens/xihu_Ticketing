@@ -1,0 +1,20 @@
+<cu-custom bgColor="bg-white" isBack="{{true}}">
+	<view slot="content">核销记录</view>
+</cu-custom>
+
+<view class="checkLog">
+	<block wx:for="{{listData}}" wx:key="index">
+		<view class="log-box mt-20 py-20 px-20 bou-15 d-fx jc-between ai-center">
+			<view class="left d-fx jc-start ai-center">
+				<image class="bou-15" src="{{item.image}}"></image>
+				<view class="ml-30 d-fx jc-start ai-center">
+					<view class="mr-10">{{item.name}}</view>
+					<image style="width: 35rpx; height: 25rpx;" src="/image/icons/ticket.png"></image>
+				</view>
+			</view>
+			<view class="right d-fx jc-center ai-center" data-id="{{item.id}}" bindtap="goLogDetails">
+				<view>记录详情 ></view>
+			</view>
+		</view>
+	</block>
+</view>

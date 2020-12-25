@@ -1,0 +1,228 @@
+page {
+  background-color: #01CDCD;
+}
+
+.bg {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  z-index: -1;
+}
+
+.showQRcode {
+  width: 660rpx;
+  height: 970rpx;
+  position: absolute;
+  left: 50%;
+  top: 54%;
+  transform: translate(-50%, -50%);
+}
+
+.showQRcode>image {
+  width: 100%;
+  height: 100%
+}
+
+.showQRcode>.top {
+  width: 50%;
+  height: 300rpx;
+  position: absolute;
+  top: -80rpx;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.showQRcode>.top>image {
+  width: 180rpx;
+  height: 180rpx;
+  border-radius: 50%;
+}
+
+.showQRcode>.active {
+  width: 80%;
+  border: 1rpx dashed #EFE3E3;
+  position: absolute;
+  top: 240rpx;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.showQRcode>.body {
+  width: 80%;
+  position: absolute;
+  top: 260rpx;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.showQRcode>.body>.top {
+  font-size: 36rpx;
+  font-weight: bold;
+  line-height: 40px;
+  color: #252525;
+}
+
+.showQRcode>.body>.QRcode>image {
+  width: 360rpx;
+  height: 360rpx;
+}
+
+.showQRcode>.body>.bottom {
+  text-align: center;
+  font-size: 22rpx;
+  font-weight: bold;
+  line-height: 40px;
+}
+
+.showQRcode>.body>.bottom>.but {
+  width: 270rpx;
+  height: 60rpx;
+  color: white;
+  background-color: #01CDCD;
+  text-align: center;
+  line-height: 60rpx;
+  border-radius: 30rpx 30rpx 30rpx 30rpx;
+  margin: 10rpx auto;
+}
+
+/* 提示 */
+.Tips {
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(105, 105, 105, 0.7);
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Tips>.TipsBox {
+  width: 590rpx;
+  background-color: white;
+  border-radius: 30rpx;
+  overflow: hidden;
+}
+
+.Tips>.TipsBox>.title {
+  width: 100%;
+  height: 100rpx;
+  text-align: center;
+  font-size: 30rpx;
+  line-height: 100rpx;
+  border-bottom: 1rpx solid #e0e0e0;
+}
+
+.Tips>.TipsBox>.body {
+  width: 100%;
+  line-height: 40rpx;
+  padding: 20rpx;
+  font-size: 24rpx;
+  text-indent: 1em;
+}
+
+.Tips>.TipsBox>.foot{
+  width: 100%;
+}
+.Tips>.TipsBox>.foot>.but{
+  width: 200rpx;
+  text-align: center;
+  color: white;
+  background-color: #01CDCD;
+  line-height: 60rpx;
+}
+.Tips>.TipsBox>.foot>.buts{
+  width: 200rpx;
+  text-align: center;
+  color: white;
+  background-color: #b1b1b1;
+  line-height: 60rpx;
+}
+.cb{
+  transform: scale(0.6,0.6);
+}
+
+
+.tips{
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(105, 105, 105, 0.7);
+  position: absolute;
+  top: 0;
+}
+
+.tips>image{
+  width: 460rpx;
+  height: 520rpx;
+  position: absolute;
+  top: 500rpx;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.tips>.ti{
+  width: 140rpx;
+  height: 60rpx;
+  position: absolute;
+  top: 900rpx;
+  left: 0;
+  right: 0;
+  margin: auto;
+  z-index: 10;
+}
+
+
+
+
+/* 出场说明 */
+.explainTips{
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(105, 105, 105, 0.7);
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.explainTips>.tipsBox{
+  width: 600rpx;
+  background-color: white;
+}
+.explainTips>.tipsBox>.head{
+  width: 100%;
+  height: 80rpx;
+  font-size: 32rpx;
+  color: #030303;
+  font-weight: bold;
+  text-align: center;
+  line-height: 80rpx;
+  border-bottom: 1rpx solid #d6d6d6;
+}
+
+.explainTips>.tipsBox>.body{
+  width: 80%;
+  font-size: 22rpx;
+  margin: 50rpx auto 40rpx auto;
+  color: #646464;
+  line-height: 50rpx;
+  text-indent: 1.5em;
+}
+
+.explainTips>.tipsBox>.but{
+  width: 510rpx;
+  height: 80rpx;
+  background-color: #01CDCD;
+  color: white;
+  line-height: 80rpx;
+  font-size: 34rpx;
+  text-align: center;
+  margin: 30rpx auto 30rpx auto;
+  border-radius: 55rpx;
+}
+

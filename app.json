@@ -1,0 +1,35 @@
+{
+  "pages": [
+    "pages/navbar/navbar",
+    "pages/order/order",
+    "pages/index/index",
+    "pages/mine/mine",
+    "pages/subpage/details/details",
+    "pages/subpage/placeOrder/placeOrder",
+    "pages/subpage/Notice/Notice",
+    "pages/subpage/shipList/shipList",
+    "pages/subpage/showQRcode/showQRcode",
+    "pages/subpage/AboutUs/AboutUs",
+    "pages/subpage/orderDetails/orderDetails",
+    "pages/subpage/orderTimeDetails/orderTimeDetails",
+    "pages/subpage/logDetails/logDetails",
+    "pages/subpage/QRcodeLog/QRcodeLog",
+    "pages/subpage/checkQRcode/checkQRcode"
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "ColorUI",
+    "navigationStyle": "custom",
+    "navigationBarTextStyle": "black"
+  },
+  "usingComponents": {
+    "cu-custom": "/colorui/components/cu-custom"
+  },
+  "sitemapLocation": "sitemap.json"
+}

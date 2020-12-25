@@ -1,0 +1,16 @@
+<cu-custom bgColor="bg-white" isBack="{{true}}">
+<!-- <view slot="backText">返回</view> -->
+	<view slot="content">平台公告</view>
+</cu-custom>
+
+<!-- 卡片 -->
+<view class="card mb-40 bou-15" wx:for="{{listItem}}" wx:key="index" data-id="{{item.id}}" data-content="{{item.content}}" bindtap="goNotice">
+	<view class="top">
+		<image src="{{imgsrc}}{{item.image}}"></image>
+	</view>
+	<view class="bottom pl-30">
+    <view class="py-10 mt-10" style="font-size:26rpx;color:#000000">{{item.title}}</view>
+    <view class="py-10 mb-20" style="font-size:22rpx;color:#ADADAC">{{item.create_time}}</view>
+  </view>
+</view>
+<!-- 卡片结束 -->

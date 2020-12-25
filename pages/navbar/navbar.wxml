@@ -1,0 +1,41 @@
+<swiper style="height: {{height}};" current="{{current}}" duration="500" bindchange="cardSwiper">
+
+	<swiper-item wx:key>
+		<index id="index"></index>
+	</swiper-item>
+
+	<swiper-item style="background-color:#F3F3F3" wx:key>
+		<order id="order"></order>
+	</swiper-item>
+
+	<swiper-item wx:key>
+		<!-- 给子组件传值，也就是mine页面，传我这个zdy的跳转页面的方法 -->
+		<mine id="mine" bind:mineJumps="mineJump"></mine>
+	</swiper-item>
+
+</swiper>
+
+<view style="height:100rpx">
+	<view class="cu-bar tabbar bg-white shadow foot">
+		<view class="action" bindtap="NavChange" data-cur="0">
+			<view class='cuIcon-cu-image'>
+				<image mode="widthFix" src=" /image/icons/{{current=='0'? 'index' : 'index1' }}.png"></image>
+			</view>
+			<view class="{{current=='0' ?'text-green':'text-gray'}}">首页</view>
+		</view>
+
+		<view class="action" bindtap="NavChange" data-cur="1">
+			<view class='cuIcon-cu-image'>
+				<image mode="widthFix" src="/image/icons/{{current=='1' ? 'order':'order1'}}.png"></image>
+			</view>
+			<view class="{{current=='1' ?'text-green':'text-gray'}}">订单</view>
+		</view>
+
+		<view class="action" bindtap="NavChange" data-cur="2">
+			<view class='cuIcon-cu-image'>
+				<image mode="widthFix" src="/image/icons/{{current=='2' ? 'mine':'mine1'}}.png"></image>
+			</view>
+			<view class="{{current=='2' ?'text-green':'text-gray'}}">我的</view>
+		</view>
+	</view>
+</view>

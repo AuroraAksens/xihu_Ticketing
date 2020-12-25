@@ -1,0 +1,194 @@
+<cu-custom bgColor="bg-white">
+	<view slot="content">订单</view>
+</cu-custom>
+
+<scroll-view scroll-x class="banav text-black nav padding-bottom-xs" style="background-color: white;">
+	<view class="flex text-center">
+		<view class="cu-item flex-sub {{index==TabCur?'text-greys cur':''}}" wx:for="{{item}}" wx:key="unique" bindtap="tabSelect" data-id="{{index}}">
+			{{item}}
+		</view>
+	</view>
+</scroll-view>
+
+
+<view class="m-orderlist">
+	<block wx:if="{{listData.length != 0}}" wx:for="{{listData}}" wx:key="unique">
+		<view class="orderlistBox">
+			<view class="top" wx:if="{{item.specs_id == 2}}">
+				<view class="text" wx:if="{{item.status == 1}}">待入场</view>
+				<view class="text" wx:if="{{item.status == 2}}">已入场</view>
+				<view class="text" wx:if="{{item.status == 3}}">已出场</view>
+				<view class="text" wx:if="{{item.status == 4}}">已取消</view>
+			</view>
+
+			<view class="top" wx:if="{{item.specs_id == 1}}">
+				<view class="text">已购买</view>
+			</view>
+
+			<view class="mid" wx:if="{{item.specs_id == 2}}">
+				<view class="left">
+					<view class="mid1">{{item.name}}</view>
+					<view class="mid3">订单编号：{{item.order_number}}</view>
+					<view class="mid3">下单时间：{{item.create_time}}</view>
+					<view class="mid2 d-fx ai-center">
+						 租金 {{item.price}} / {{item.min_time}}分钟
+					</view>
+					<view class="mid3">
+						押金 {{item.order_price}}
+					</view>
+					<view class="mid3">① 扫码核销入场 ② 扫码核销出场</view>
+					<view class="mid3">
+						<image class="mr-10" src="/image/icons/orderIcon2.png"></image>未扫码核销出场，订单会持续进行计费
+					</view>
+					<view class="mid3" wx:if="{{item.status == 1 && item.tk_order == 0 && item.is_reserve == 1}}">预约使用日期：<text style="font-size:30rpx;color:#01cdcd">{{item.reserve_date}}</text></view>
+					<!-- <view class="mid3">订单编号：{{item.order_number}}</view> -->
+					<view class="mid3" wx:if="{{TabCur == 3}}">退押金额：￥{{item.tk_price}}</view>
+					<view class="mid3" wx:if="{{TabCur == 3}}">游玩时长(含赠送时长10分钟)：{{item.diff_time}}分钟</view>
+				</view>
+				<view class="right">
+					<image mode="aspectFill" src="/image/oneShip.png"></image>
+				</view>
+			</view>
+
+			<view class="mid" wx:if="{{item.specs_id == 1}}">
+				<view class="left">
+					<view class="mid1">{{item.name}}</view>
+					<view class="mid3">
+						<image class="mr-10" src="/image/icons/orderIcon1.png"></image>￥{{item.order_price}}
+					</view>
+					<view class="mid3">
+						<image class="mr-10" src="/image/icons/orderIcon2.png"></image>未扫码核销出场，订单会持续进行计费
+					</view>
+					<view class="mid3">订单编号：{{item.order_number}}</view>
+					<view class="mid3">下单时间：{{item.create_time}}</view>
+					<view class="mid3">可乘坐人数：<text style="font-size:30rpx;color:#01cdcd">{{item.num_people}}</text>人</view>
+					<view class="mid3" wx:if="{{item.status == 1 && item.tk_order == 0 && item.is_reserve == 1}}">预约使用日期：<text style="font-size:30rpx;color:#01cdcd">{{item.reserve_date}}</text></view>
+				</view>
+				<view class="right">
+					<image mode="aspectFill" src="/image/oneShip.png"></image>
+				</view>
+			</view>
+
+			<view class="bottom">
+				<view class="xian">
+					<image style="height:2rpx" mode="aspectFit" src="/image/27.png"></image>
+				</view>
+				<view class="bottom1">
+
+					<view class="nav-box" wx:if="{{item.status == 1 && item.tk_order == 0}}">
+						<image src="/image/but.png"></image>
+						<view class="nav-text">
+							<picker mode="date" value="{{reserve_date}}" start="{{start_date}}" end="{{end_date}}" data-status="{{item.status}}" data-id="{{item.order_id}}" bindchange="bindDateChange">
+								修改预约
+							</picker>
+						</view>
+					</view>
+
+					<view class="nav-box" wx:if="{{item.status == 1 && item.tk_order == 0 && item.specs_id == 2}}">
+						<image src="/image/but.png"></image>
+						<view class="nav-text" data-status="{{item.status}}" data-id="{{item.order_id}}" data-reservedate="{{item.reserve_date}}" bindtap="showQRcode">入场二维码</view>
+					</view>
+
+					<view class="nav-box" wx:if="{{item.status == 1 && item.tk_order == 0 && item.specs_id == 1}}">
+						<image src="/image/but.png"></image>
+						<view class="nav-text" data-id="{{item.order_id}}" data-reservedate="{{item.reserve_date}}" bindtap="postApply">确认入场</view>
+					</view>
+
+					<view class="nav-box" wx:if="{{item.status == 1 && item.tk_order == 0}}">
+						<image src="/image/but.png"></image>
+						<view class="nav-text" data-id="{{item.order_id}}" bindtap="clearOrder1">取消订单</view>
+					</view>
+
+					<view class="nav-box" wx:if="{{item.status == 1 && item.tk_order == 1}}">
+						<image src="/image/but.png"></image>
+						<view class="nav-text1">退订中 </view>
+					</view>
+
+					<view class="nav-box"  wx:if="{{item.status == 2}}">
+						<image src="/image/but.png"></image>
+						<view class="nav-text" data-status="{{item.status}}" data-id="{{item.order_id}}" bindtap="showQRcode">出场二维码</view>
+					</view>
+
+					<view class="nav-box" wx:if="{{item.status == 2}}">
+						<image src="/image/but.png"></image>
+						<view class="nav-text" data-id="{{item.order_id}}" data-type="0" bindtap="goorderDetails">查看详情</view>
+					</view>
+
+					<view class="nav-box" wx:if="{{item.status == 3}}">
+						<image src="/image/but.png"></image>
+						<view class="nav-text" data-id="{{item.order_id}}" data-type="1" bindtap="goorderDetails">查看详情</view>
+					</view>
+
+					<view class="nav-box" wx:if="{{item.status == 3 && item.tk_order == 0 && item.specs_id == 2}}">
+						<image src="/image/but.png"></image>
+						<view class="nav-text" data-time="{{item.diff_time}}" data-price="{{item.tk_price}}" data-consumption="{{item.consumption}}" data-id="{{item.order_id}}" bindtap="refundOrder">申请退押金</view>
+					</view>
+
+					<view class="nav-box" wx:if="{{item.status == 3 && item.tk_order == 2 && item.specs_id == 2}}">
+						<image src="/image/but.png"></image>
+						<view class="nav-text1">押金已退</view>
+					</view>
+
+					<view class="nav-box" wx:if="{{item.status == 4}}">
+						<image src="/image/but.png"></image>
+						<view class="nav-text" data-id="{{item.product_id}}" bindtap="gobyorder">重新下单</view>
+					</view>
+
+					<view class="nav-box" wx:if="{{item.status == 1}}">
+						<image src="/image/but.png"></image>
+						<button open-type="contact" class="nav-text">联系平台</button> 
+					</view>
+
+					<!-- <view class="nav-text" wx:if="{{item.status == 1 && item.tk_order == 0}}">
+						<picker mode="date" value="{{reserve_date}}" start="{{start_date}}" end="{{end_date}}" data-status="{{item.status}}" data-id="{{item.order_id}}" bindchange="bindDateChange">
+							修改预约
+						</picker>
+					</view>
+					<view class="nav-text" wx:if="{{item.status == 1 && item.tk_order == 0 && item.specs_id == 2}}" data-status="{{item.status}}" data-id="{{item.order_id}}" data-reservedate="{{item.reserve_date}}" bindtap="showQRcode">入场二维码</view>
+					<view class="nav-text" wx:if="{{item.status == 1 && item.tk_order == 0 && item.specs_id == 1}}" data-id="{{item.order_id}}" data-reservedate="{{item.reserve_date}}" bindtap="postApply">确认入场</view>
+					<view class="nav-text" wx:if="{{item.status == 1 && item.tk_order == 0}}" data-id="{{item.order_id}}" bindtap="clearOrder1">取消订单</view>
+					<view class="nav-text1" wx:if="{{item.status == 1 && item.tk_order == 1}}">退订中 </view>
+					<view class="nav-text" wx:if="{{item.status == 2}}" data-status="{{item.status}}" data-id="{{item.order_id}}" bindtap="showQRcode">出场二维码</view>
+					<view class="nav-text" wx:if="{{item.status == 2}}" data-id="{{item.order_id}}" data-type="0" bindtap="goorderDetails">查看详情</view>
+					<view class="nav-text" wx:if="{{item.status == 3}}" data-id="{{item.order_id}}" data-type="1" bindtap="goorderDetails">查看详情</view>
+					<view class="nav-text" wx:if="{{item.status == 3 && item.tk_order == 0 && item.specs_id == 2}}" data-time="{{item.diff_time}}" data-price="{{item.tk_price}}" data-consumption="{{item.consumption}}" data-id="{{item.order_id}}" bindtap="refundOrder">申请退押金</view>
+					<view class="nav-text1" wx:if="{{item.status == 3 && item.tk_order == 2 && item.specs_id == 2}}">押金已退</view>
+					<view class="nav-text" wx:if="{{item.status == 4}}" data-id="{{item.product_id}}" bindtap="gobyorder">重新下单</view>-->
+					
+				</view>
+			</view>
+		</view>
+
+	</block>
+	<view wx:if="{{listData.length == 0}}" class="tips">暂无数据</view>
+</view>
+
+<!-- 取消订单 -->
+<view class="cancelTips" wx:if="{{clearOrder == 1}}">
+	<image src="/image/tips/cancel.png"></image>
+	<view class="ti1 bou-30" bindtap="clearOrder">确定</view>
+	<view class="ti2 bou-30" bindtap="clearOrder1">取消</view>
+</view>
+<!-- 取消订单结束 -->
+
+<!-- 申请退款 -->
+<view class="cancelTips" wx:if="{{refundOrder == 1}}">
+	<image src="/image/tips/refund.png"></image>
+	<view class="textBody d-fx flex-cl">
+		<view class="d-fx jc-between ai-center my-20">
+			<view>实际时长</view>
+			<view>{{time}}分钟</view>
+		</view>
+		<view class="d-fx jc-between ai-center my-20">
+			<view>实际消费</view>
+			<view>￥{{consumption}}</view>
+		</view>
+		<view class="d-fx jc-between ai-center my-20">
+			<view>应退押金</view>
+			<view>￥{{price}}</view>
+		</view>
+	</view>
+	<view class="ti1 bou-30" bindtap="clearOrder">确定</view>
+	<view class="ti2 bou-30" bindtap="refundOrder">取消</view>
+</view>
+<!-- 申请退款结束 -->

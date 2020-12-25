@@ -1,0 +1,223 @@
+<cu-custom bgColor="bg-white" isCustom="{{true}}">
+	<view slot="content">商品详情</view>
+</cu-custom>
+
+
+<view class="details">
+	<view class="{{status == 0 ? 'headImg' : 'headImgs'}}">
+		<image mode="scaleToFill" src="{{listData.image}}"></image>
+	</view>
+
+	<!-- 购买前 -->
+	<block wx:if="{{status == 0}}">
+		<view class="bodyText">
+			<view class="top d-fx jc-between ai-center pb-30">
+				<view class="left mt-30">
+					<view class="title d-fx jc-start ai-end">
+						<view style="font-size:26rpx;color:#992a31">{{listData.vessel_type.name}}</view>
+					</view>
+					<view class="body py-10" style="font-size:32rpx;color:black">{{listData.name}}</view>
+					<view class="foot d-fx jc-start ai-center">
+
+						<view class="foot-box d-fx jc-start ai-center mr-30" wx:if="{{listData.specs_id  == 2}}">
+							<view class="f-box mr-10"></view>
+							<view>租金：{{listData.price}}/{{listData.min_time}}分钟</view>
+						</view>
+
+						<view class="foot-box d-fx jc-start ai-center mr-30" wx:if="{{listData.specs_id == 1}}">
+							<view class="f-box mr-10"></view>
+							<view>租金：{{listData.price}}/1人</view>
+						</view>
+
+						<view class="foot-box d-fx jc-start ai-center mr-30" wx:if="{{listData.specs_id == 2}}">
+							<view class="f-box mr-10"></view>
+							<view>押金：{{listData.deposit}}</view>
+						</view>
+
+					</view>
+				</view>
+				<view class="right d-fx jc-center">
+					<view class="body">
+						<image src="/image/but.png"></image>
+						<view class="bodyText">限坐{{listData.number}}人</view>
+					</view>
+				</view>
+			</view>
+			<view class="text">
+				<view class="title">租用说明
+				</view>
+				<rich-text class="textBody" nodes="{{listData.content}}">
+				</rich-text>
+			</view>
+		</view>
+		<view class="footNav d-fx jc-between">
+			<view class="left d-fx jc-around ai-center">
+				<button open-type="contact" class="py-10" style="font-size: 27rpx;">
+					<image style="width: 50rpx;height: 50rpx;" src="/image/icons/service2.png"></image>
+					<view>客服</view>
+				</button>
+				<button open-type="share" style="font-size: 27rpx;">
+					<image style="width: 50rpx;height: 50rpx;" src="/image/icons/share.png"></image>
+					<view>分享</view>
+				</button>
+			</view>
+			<!-- yunzhihui 改为先预约时间 -->
+			<view class="rights" style="width:60%">
+				<picker start="{{start_date}}" end="{{end_date}}" mode="date" value="{{reserve_date}}" bindchange="bindDateChange">
+					<view style="margin-top:-10rpx;font-size:32rpx">预约使用日期</view>
+					<view style="margin-top:-80rpx;font-size:24rpx">（下单后可修改）</view>
+				</picker>
+			</view>
+			<!-- <view class="right" bindtap="getOrder">
+				立即支付
+			</view> -->
+		</view>
+	</block>
+	<!-- 购买前结束 -->
+
+
+
+	<!-- 购买后 -->
+	<block wx:if="{{status == 1}}">
+		<view style="margin: 33vh auto;"></view>
+		<view class="listBox bou-15 py-20 px-20">
+			<view class="title d-fx jc-start ai-center">
+				<view class="active mr-10"></view>
+				<view>基本信息</view>
+			</view>
+			<view class="body my-20">
+				<view class="body-box mt-20 py-10 d-fx jc-between ai-center">
+					<view style="font-size:24rpx;color:#030303;font-weight:bold;">游船</view>
+					<view style="font-size:22rpx;">{{listData.name}}</view>
+				</view>
+				<view class="body-box mt-20 py-10 d-fx jc-between ai-center">
+					<view style="font-size:24rpx;color:#030303;font-weight:bold;">类型</view>
+					<view style="font-size:22rpx;">{{listData.vessel_type.name}}</view>
+				</view>
+				<view class="body-box mt-20 py-10 d-fx jc-between ai-center">
+					<view style="font-size:24rpx;color:#030303;font-weight:bold;">限载</view>
+					<view style="font-size:22rpx;">{{listData.number}}人</view>
+				</view>
+			</view>
+		</view>
+
+		<view class="listBox bou-15 py-20 px-20" wx:if="{{listData.specs_id == 1}}">
+			<view class="title d-fx jc-start ai-center">
+				<view class="active mr-10"></view>
+				<view>乘船人数</view>
+			</view>
+			<view class="body my-20">
+				<view class="body-box mt-20 py-10 d-fx jc-between ai-center">
+					<view style="font-size:24rpx;color:#030303;font-weight:bold;">人数</view>
+					<view style="font-size:30rpx;" class="d-fx jc-between ai-center">
+						<image style="width:50rpx;height:50rpx" src="/image/icons/reduce.png" bindtap="reduce"></image>
+						<view class="mx-10">{{num}}</view>
+						<image style="width:50rpx;height:50rpx" src="/image/icons/plus.png" bindtap="plus"></image>
+					</view>
+				</view>
+			</view>
+		</view>
+
+		<view class="listBox bou-15 py-20 px-20" wx:if="{{listData.specs_id == 2}}">
+			<view class="title d-fx jc-start ai-center">
+				<view class="active mr-10"></view>
+				<view>金额明细</view>
+			</view>
+			<view class="body my-20">
+				<view class="body-box mt-20 py-10 d-fx jc-between ai-center">
+					<view style="font-size:24rpx;color:#030303;font-weight:bold;">最低消费</view>
+					<view style="font-size:22rpx;">￥{{listData.price}} / {{listData.min_time}}分钟</view>
+				</view>
+				<view class="body-box mt-20 py-10 d-fx jc-between ai-center">
+					<view style="font-size:24rpx;color:#030303;font-weight:bold;">最低消费后计费标准</view>
+					<view style="font-size:22rpx;">￥{{listData.after_price}} / {{listData.after_min_time}}分钟</view>
+				</view>
+				<view class="body-box mt-20 py-10 d-fx jc-between ai-center">
+					<view style="font-size:24rpx;color:#030303;font-weight:bold;">押金（游玩结束后实际消费金额将从押金中扣除）</view>
+					<view style="font-size:22rpx;">￥{{listData.deposit}}</view>
+				</view>
+			</view>
+		</view>
+
+		<view class="listBox bou-15 py-20 px-20" wx:if="{{listData.specs_id == 1}}">
+			<view class="title d-fx jc-start ai-center">
+				<view class="active mr-10"></view>
+				<view>金额明细</view>
+			</view>
+			<view class="body my-20">
+				<view class="body-box mt-20 py-10 d-fx jc-between ai-center">
+					<view style="font-size:24rpx;color:#030303;font-weight:bold;">租金</view>
+					<view style="font-size:22rpx;">￥{{listData.price}} / 1人</view>
+				</view>
+			</view>
+		</view>
+
+		<view class="listBox bou-15 pt-20 px-20">
+			<view class="title d-fx jc-start ai-center">
+				<view class="active mr-10"></view>
+				<view>乘船须知</view>
+			</view>
+			<view class="body my-20">
+				<view class="body-box mt-20 pt-10 pl-20 d-fx jc-center ai-center flex-cl">
+					<view class="ml-20" style="font-size:22rpx;color:#030303;text-indent: 1em;padding-bottom: 30rpx;">
+						<view class="body">
+							<view>为了您的安全，行船前请仔细阅读以下文字并遵照执行:</view>
+							<view>一、候船游人请在候船区等候，勿植自走上码头，以免意外落水。离船时放回原</view>
+							<view>二、上船前请您务必按工作人员要求穿戴好教生衣，并妥善保管、如有遗失或损坏，将由您照价赔偿。</view>
+							<view>三、为了保证全体乘船成员的安全，醉酒者、严重晕船者、孕妇、高血压、心脏病、精神病患者、不能穿着牧生衣的婴幼儿、身体不适者、年老行动不便者禁止乘船，不足14岁未成年人须在成年人陪同下乘船，否则责任自负。</view>
+							<view>四、严格按核载人数乘座(幼儿也需计算座位)，严禁超载及中途靠岸载客，严
+								禁在非码头地点上岸游宽或弃船离开，违者罚款100元，</view>
+							<view>五、上下船时，请听从工作人员安排，有序进出船仓，防止拥挤造成事故，严禁
+								自行上下船，</view>
+							<view>六、游船霄在规定水域游览，可通行的桥孔须按指示牌规定行使方向行驶。严禁
+								头部，肢体伸出船外及用肢体推碰外部墙体，船只等危及自身和他人安全的行为。</view>
+							<view>七、行船过程中严禁在船上走动、换座、戏水、嬉戏打闹，照顾好自己的小孩和
+								老人、坐好扶稳:船未靠好码头，严禁登上游船前沿，以免发生落水事故。</view>
+							<view>八、邻船间严禁攀拉、冲撞，追逐，嬉戏，严禁游客水上换船、过船;严禁在乘
+								船过程中檀自脱下救生衣，违者第一-次罚款100元，第二次扣留游船，井罚款200元。</view>
+							<view>九请您将船只还回原船只租用码头,各码头只接收其各自出租的船只。</view>
+							<view>十、请妥善保管好您的随身物品，为了保证全体乘船成员的安全，严禁携带宠
+								物:严禁携带易燃、易堰、有毒、霉臭或其他有损他人健康以及工作人员认为不适宜携
+								带的物品。</view>
+							<view>十一.行船途中一旦发生事故， 切忌单独行动。应马上拨打我们的求援电话(请
+								牢记术援电话0752-2120092，并按工作人员指示行动，保持冷静和观察，保证游船的
+								稳定性。</view>
+							<view>十二、在遇暴雨、三级以上风力(含三级)等恶劣天气时禁止出船，</view>
+							<view>十三，未成年人不得驾驶游船，驾驶人须严格按规定正确行驶，如因碰撞造成船
+								只破损，须由驾驶人照价赔偿，
+								如有团不遵守以上规定而造成安全事故的。责任由游客自负，若造成重大安全事
+								件，将追究游客相关法律责任，</view>
+						</view>
+					</view>
+					<!-- <view class="ml-20 mt-20" style="font-size:22rpx;color:#030303;text-indent: 1em;">二、上船前请您务必按工作人员要求穿戴好教生衣，并妥善保管，离
+					船时放回原位，如有遗失或损坏，将由您照价赔偿。</view>
+					<view class="butge"  data-index="2" bindtap="goTips">查看更多</view> -->
+				</view>
+			</view>
+		</view>
+
+		<view class="pb"></view>
+
+		<view class="footNav d-fx jc-between" wx:if="{{listData.specs_id == 2}}">
+			<view class="left d-fx jc-center ai-start flex-cl pl-20">
+				<view style="font-size:24rpx;font-weight:400;" class="ml-10">押金</view>
+				<view style="color:#FF2121;font-weight:bold;font-size:30rpx;">￥{{listData.deposit}}</view>
+			</view>
+			<view class="rights" bindtap="{{token == 1 ? 'getOrder' : 'checkLogin'}}">
+				立即支付
+			</view>
+		</view>
+
+		<view class="footNav d-fx jc-between" wx:if="{{listData.specs_id == 1}}">
+			<view class="left d-fx jc-center ai-start flex-cl pl-20">
+				<view style="font-size:24rpx;font-weight:400;" class="ml-10">总价</view>
+				<view style="color:#FF2121;font-weight:bold;font-size:30rpx;">￥{{listData.price * num}}</view>
+			</view>
+			<view class="rights" bindtap="{{token == 1 ? 'getOrder1' : 'checkLogin'}}">
+				立即支付
+			</view>
+		</view>
+	</block>
+	<!-- 购买后结束 -->
+
+</view>

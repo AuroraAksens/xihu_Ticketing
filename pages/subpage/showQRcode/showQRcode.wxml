@@ -1,0 +1,110 @@
+<cu-custom bgColor="bg-white" isBack="{{true}}">
+	<view slot="content">请对准扫码器</view>
+</cu-custom>
+
+<image class="bg" src="/image/QRcodebg.jpg"></image>
+
+<view class="showQRcode">
+	<image src="/image/stamp.png"></image>
+	<view class="top d-fx jc-center ai-center flex-cl">
+		<image mode="scaleToFill" src="{{list.image}}"></image>
+		<view class="mt-20" style="font-size:36rpx;font-weight:bold;">{{list.name}}</view>
+	</view>
+	<view class="active"></view>
+	<view class="body d-fx jc-center ai-center flex-cl">
+		<view wx:if="{{status == 1}}" class="top">请扫码入场</view>
+		<view wx:if="{{status == 2}}" class="top">请扫码出场</view>
+		<view class="QRcode" wx:if="{{showTi3 == 0}}">
+			<!-- <image src="{{list.qr_code}}"></image> -->
+			<canvas style="width: 180px; height: 170px;" canvas-id="myQrcode"></canvas> 
+		</view>
+		<view class="bottom">
+			<view>编码：{{list.qr_number}}</view>
+			<view class="but" bindtap="goBack1">
+				使用说明
+			</view>
+			<view class="">注意：船只归还请务必回到原来码头，否则无法退押金</view>
+		</view>
+	</view>
+</view>
+
+<!-- 使用须知 -->
+<view class="Tips" wx:if="{{showTips == 1}}">
+	<view class="TipsBox">
+		<view class="title">使用须知</view>
+		<scroll-view class="body" style="height:600rpx" scroll-y>
+			<text>为了您的安全，行船前请仔细阅读以下文字并遵照执行；
+一、候船游人请在候船区等候，勿擅自走上码头，以免以外落水。
+二、上船前请您务必按工作人员要求穿戴好救生衣，并妥善保管，离船时放回原位，如有遗失或损坏，将由您照价赔偿。
+三、为了保证全体乘船成员的安全，醉酒者、严重晕船者、孕妇、高血压、心脏病、精神病患者、不能穿戴救生衣的婴幼儿、身体不适者、年老行动不便者禁止乘船，不足14岁未成年人须在成年人陪同下乘船，否则责任自负。
+四、严格按核载人数乘座（幼儿也需要计算座位），严禁超载及中途靠岸载客，严禁在非码头地点上岸浏览或弃船离开，违者罚款100元。
+五、上下船时，请听从工作人员安排，有序进出船仓，防止拥挤造成事故，严禁自行上下船。
+六、游船需在规定水域浏览，可通行的桥孔须按指示牌规定行使方向行使。严禁头部、肢体伸出船外及用肢体推碰外部墙体、船只等危及自身和他人安全的行为。
+七、行船过程中严禁在船上走动、换座、戏水、嬉戏打闹，照顾好自己的小孩和老人，坐好扶稳；船未靠好码头，严禁登上游船前沿，以免发生落水事故。
+八、邻船间严禁攀拉、冲撞、追逐、嬉戏。严禁游客水上换船、过船；严禁在乘船过程中擅自脱下救生衣，违者第一次罚款100元，第二次扣留游船，并罚款200元。
+九、请您将船只还回原船只租用码头，各码头只接收其各自出租的船只。
+十、请妥善保管好您的随身物品，为了保证全体乘船成员的安全，严禁携带宠物；严禁携带易燃、易爆、有毒、霉臭或其他有损他人健康以及工作人员认为不适宜携带的物品。
+十一、行船途中一旦发生事故，切忌单独行动。应马上拨打我们的救援电话（请牢记救援电话0752-2120092），并按工作人员指示行动，保持冷静和观察，保证游船的稳定性。
+十二、在遇暴雨、三级以上风力（含三级）等恶劣天气时禁止出船。
+十三、未成年人不得驾驶游船。驾驶人须严格规定正确行使，如因碰撞造成船只破损，须由驾驶人照价赔偿。
+如有因不遵守以上规定而造成安全事故的，责任由游客自负，若造成重大安全事件、并追究游客相关法律责任。
+</text>
+		</scroll-view>
+		<view class="foot d-fx jc-around ai-center flex-cl py-20">
+			<label class="checkbox d-fx ai-center" style="font-size: 26rpx;" data-sta="{{sta}}" bindtap="checkBox">
+				<checkbox checked="{{sta}}" class="cb" />本人已同意确认
+			</label>
+			<view class="but mt-20 bou-20" wx:if="{{sta == true}}" bindtap="close">确认</view>
+			<view class="buts mt-20 bou-20" wx:if="{{sta == false}}">确认</view>
+		</view>
+	</view>
+</view>
+<!-- 使用须知结束 -->
+
+
+<!-- 使用引导 -->
+<view class="Tips" wx:if="{{showTips == 2}}">
+	<view class="TipsBox">
+		<view class="title">使用引导</view>
+		<view class="body">
+			请将该二维码对准扫码器摄像头进行识别（保持与扫码器距离20厘米效果最佳）、听到 “哔” 一声即表示识别成功，并稍等2秒钟
+		</view>
+		<view class="foot d-fx jc-around ai-center flex-cl py-20">
+			<view class="but mt-20 bou-20" bindtap="close">确认</view>
+		</view>
+	</view>
+</view>
+<!-- 使用引导结束 -->
+
+
+<!-- 入场 -->
+<view class="tips" wx:if="{{showTi1 == 1}}">
+	<image src="/image/tips/Approach.png"></image>
+	<view data-type="0" bindtap="goOrder" class="ti"></view>
+</view>
+<!-- 入场结束 -->
+
+<!-- 出场 -->
+<view class="tips" wx:if="{{showTi2 == 1}}">
+	<image src="/image/tips/showup.png"></image>
+	<view data-type="1" bindtap="goOrder" class="ti"></view>
+</view>
+<!-- 出场结束 -->
+
+
+<!-- 使用说明 -->
+<view class="explainTips" wx:if="{{showTi3 == 1}}">
+	<view class="tipsBox bou-30">
+		<view class="head">使用说明</view>
+		<view class="body">
+			<view>一、到达码头，请出示二维码对准扫码机识别进行入场核销，核销后，
+				系统正式计费</view>
+			<view> 二、游船结束后，请出示二维码对准扫码机识别进行出场核销，确认结
+				束后，并扣除实际租金退回剩余押金</view>
+		</view>
+		<view class="but" bindtap="goBack1">
+			知道了
+		</view>
+	</view>
+</view>
+<!-- 使用说明结束 -->

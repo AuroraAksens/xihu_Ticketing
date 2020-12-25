@@ -1,0 +1,70 @@
+<cu-custom bgColor="bg-white" isBack="{{true}}">
+	<view slot="content">船源列表</view>
+</cu-custom>
+
+
+<!-- 搜索框 -->
+<view class="search d-fx ai-center jc-center">
+	<view class="ss">
+		<image src="/image/icons/ss.png"></image>
+	</view>
+	<input class="search-text pl-20" bindinput="getData" bindblur="getListDatSearch" type="text" placeholder="{{search ? search : '搜索船源'}}"></input>
+</view>
+<!-- 搜索框结束 -->
+
+<!-- 导航选项 -->
+<view class="navbar">
+	<view class="scroll d-fx jc-start">
+
+		<view class="nav-box">
+			<image src="/image/but.png"></image>
+			<view class="{{status == -1 ? 'nav-texts' : 'nav-text'}}" data-index="-1" bindtap="selectNav">全部</view>
+		</view>
+
+		<block wx:for="{{navbar}}" wx:key="index">
+			<view class="nav-box">
+				<image src="/image/but.png"></image>
+				<view class="{{status == item.id ? 'nav-texts' : 'nav-text'}}" data-index="{{item.id}}" bindtap="selectNav">{{item.name}}</view>
+			</view>
+		</block>
+	</view>
+</view>
+<!-- 导航选项结束 -->
+
+
+<!-- 选项卡 -->
+<view class="listCard" wx:if="{{listData.length != 0}}" wx:for="{{listData}}" wx:key="index" data-id="{{item.id}}" bindtap="goDetails">
+	<view class="topIcon">限坐{{item.number}}人</view>
+	<view class="top d-fx jc-center ai-center">
+		<image mode="aspectFill" src="{{item.image}}"></image>
+	</view>
+	<view class="bottom pb-20">
+		<view class="body py-10">
+			{{item.name}}
+		</view>
+		<view class="foot d-fx jc-between">
+
+			<view class="foot-box" wx:if="{{item.specs_id == 2}}">
+				<view>租金：{{item.price}}/{{item.min_time}}分钟</view>
+			</view>
+
+			<view class="foot-box" wx:if="{{item.specs_id == 2}}">
+				<view>押金：{{item.deposit}}</view>
+			</view>
+
+			<view class="foot-box" wx:if="{{item.specs_id == 1}}">
+				<view>租金：{{item.price}}/1人</view>
+			</view>
+
+			<view class="foot-box">
+				<view>类型：{{item.vessel_type.name}}</view>
+			</view>
+
+		</view>
+	</view>
+</view>
+
+<view class="Tips" wx:if="{{listData.length == 0}}">暂无数据</view>
+
+<view class="cheng"></view>
+<!-- 选项卡结束 -->
